@@ -1,3 +1,3 @@
 load 'san_sorter.rb'
 
-SanSorter.new( {margaret: 1, monerus: 3, pericocho: 1, marcus: 3, josh: 2} ).do_work.print_results
+SanSorter.new( {margaret: 1, dj: 3, tesla:1, pericocho: 1, marcus: 3, josh: 2},15 ).do_work.print_results

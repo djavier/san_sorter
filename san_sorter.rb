@@ -1,20 +1,22 @@
 class SanSorter
+  require 'date'
 
-  def initialize participants
+  def initialize (participants, days_period)
     @participants = participants
+    @days_period = days_period
     @order = []
     self
   end
 
   def print_results
     raise 'Dafuq ur trying to do, run the draft first' if @order.empty?
-    puts " ------------------------------"
-    puts " | #{'Number'.center(8)} | #{'Buddy'.to_s.center(15)} |"
-    puts " ------------------------------"
+    puts " ------------------------------------------------"
+    puts " | #{'Number'.center(8)} | #{'Buddy'.to_s.center(15)} |  #{'Date'.to_s.center(15)}|"
+    puts " ------------------------------------------------"
     @order.each_with_index do |item, index|
-      puts " | #{(index+1).to_s.center(8)} | #{(item).to_s.center(15)} |"
+      puts " | #{(index+1).to_s.center(8)} | #{(item).to_s.center(15)} | #{calculate_date(index + 1).to_s.center(15)} |"
     end
-    puts " ------------------------------"
+    puts " ------------------------------------------------"
 
     puts "\n Brought you by 'M@rcus Mercedes'"
   end
@@ -43,6 +45,10 @@ class SanSorter
   def pick_and_clean
     pick_one
     clean_participants
+  end
+  
+  def calculate_date turn
+    Date.today + (@days_period * turn)
   end
 
 end
