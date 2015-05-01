@@ -14,6 +14,7 @@ end
 
 group :development, :test do
   gem 'cucumber'
+  gem 'pry'
 end
 
 group :production do
