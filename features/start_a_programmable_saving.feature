@@ -5,17 +5,20 @@ Feature: Start a Programamble Saving
 
 Scenario: 1 savers
 
-Scenario: 2 saver
-  Given I want to start a programmable saving
+Scenario: 3 savers
+  Given I want to start a programmable saving with a pool of 3000
   Given that a saver named "oliver" exists
-  And that a saver named "josue" exists
-  When I add "oliver" to the programmable saving with "1" ticket
-  And I add "josue" to the programmable saving with "1" ticket
+  Given that a saver named "josue" exists
+  Given that a saver named "dariel" exists
+  When "oliver" joins to the programmable saving with 1 ticket
+  And "dariel" joins to the programmable saving with 2 ticket
+  And "josue" joins to the programmable saving with 1 ticket
   And the programmable saving starts on the next payday
-  And the programmable saving pool amount is 3000
-  Then the programmable saving should state that:
+  Then the tickets should state that:
     | Order | Name   | Paydate       |
-    | 1     | Josue  | May. 15, 2015 |
-    | 2     | Oliver | May. 30, 2015 |
+    | 1     | Josue  | May 15, 2015  |
+    | 2     | Dariel | May 30, 2015  |
+    | 3     | Oliver | June 15, 2015 |
+    | 4     | Dariel | June 30, 2015 |
 
 Scenario: 7 savers

@@ -8,7 +8,10 @@ module ProgrammableSavings
 
     def start
       programmable_saving.start_date = next_paydate
-      repo.update(programmable_saving)
+
+      ProgrammableSavingPresenter.new(
+          repo.update(programmable_saving)
+        )
     end
 
     private

@@ -1,17 +1,21 @@
 module ProgrammableSavings
-
-  class AddSaver
-    def initialize(programmable_saving)
+  class Join
+    def initialize(programmable_saving, repo = UsersRepository)
       @programmable_saving = programmable_saving
+      @repo = repo
     end
 
-    def self.add(saver_name, ticket_count)
-      new.add(saver_name, ticket_count)
+    def self.join(saver_name, ticket_count = 1)
+      new.join(saver_name, ticket_count)
     end
 
-    def add(saver_name, ticket_count)
-
+    def join(saver_name, ticket_count)
+      # Joins the Saver to the Programmable Saving
+      # with X amount of tickets
     end
+
+    private
+    attr_reader :programmable_saving, :repo
 
   end
 end
