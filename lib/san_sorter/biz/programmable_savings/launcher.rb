@@ -1,28 +1,25 @@
 module ProgrammableSavings
   class Launcher
+
     def initialize(programmable_saving, repo = ProgrammableSavingsRepository)
       @programmable_saving = programmable_saving
       @repo = repo
     end
 
-    def self.start
-      repo.start(programmable_saving, next_paydate)
+    def start
+      programmable_saving.start_date = next_paydate
+      repo.update(programmable_saving)
     end
 
     private
-    attr_reader :repo
+    attr_reader :repo, :programmable_saving
+
+    private
+
 
     def next_paydate
       NextPayDate.calculate
     end
-
-    # class NextPayDate
-
-    #   def calculate
-    #     current_date = DateTime.now
-
-    #   end
-    # end
 
   end
 end

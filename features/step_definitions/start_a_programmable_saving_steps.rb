@@ -1,9 +1,9 @@
 Given(/^I want to start a programmable saving$/) do
-  @programamble_saving = ProgrammableSavings::Creator.create
+  @programmable_saving = ProgrammableSavings::Creator.create
 end
 
 Given(/^that a saver named "([^"]*)" exists$/) do |saver_name|
-  Users::Creator.create(saver_name )
+  Users::Creator.create(saver_name)
 end
 
 When(/^I add "([^"]*)" to the programmable saving with "([^"]*)" ticket$/) do |saver_name, ticket_count|

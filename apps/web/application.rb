@@ -93,7 +93,7 @@ module Web
       #                         'postgres://localhost/bookshelf'
       #                         'mysql://localhost/bookshelf'
       #
-      # adapter type: :file_system, uri: ENV['WEB_DATABASE_URL']
+      # adapter type: :memory, uri: ENV['WEB_DATABASE_URL']
 
       # Configure a database mapping
       # See: http://www.rubydoc.info/gems/lotus-model#Data_Mapper

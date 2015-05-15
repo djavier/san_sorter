@@ -2,28 +2,26 @@ require 'lotus/model'
 Dir["#{ __dir__ }/san_sorter/**/*.rb"].each { |file| require_relative file }
 
 Lotus::Model.configure do
-  # Database adapter
-  #
-  # Available options:
-  #
-  #  * Memory adapter
+  adapter type: :memory, uri: 'memory://localhost/database'
 
-  #
-  #  * SQL adapter
-  #    adapter type: :sql, uri: 'sqlite://db/san_sorter_development.sqlite3'
-  #    adapter type: :sql, uri: 'postgres://localhost/san_sorter_development'
-  #    adapter type: :sql, uri: 'mysql://localhost/san_sorter_development'
-  #
-  # adapter type: :file_system, uri: ENV['SAN_SORTER_DATABASE_URL']
+  mapping do
 
-  ##
-  # Database mapping
-  #
-  # Intended for specifying application wide mappings.
-  #
-  # You can specify mapping file to load with:
-  #
-  adapter type: :memory, uri: 'memory://localhost/san_sorter_development'
-  mapping "#{__dir__}/config/mapping"
+    collection :programmable_savings do
+      entity ProgrammableSaving
+      repository ProgrammableSavingsRepository
+
+      attribute :id, Integer
+      attribute :start_date, DateTime
+    end
+
+    collection :users do
+      entity User
+      repository UsersRepository
+
+      attribute :id, Integer
+      attribute :name, String
+    end
+
+  end
 
 end.load!
