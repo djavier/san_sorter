@@ -15,6 +15,7 @@ end
 group :development, :test do
   gem 'cucumber'
   gem 'pry'
+  gem 'pry-nav'
 end
 
 group :production do
